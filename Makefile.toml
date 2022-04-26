@@ -1,0 +1,58 @@
+
+[tasks.nbody]
+args = ["run", "--release", "--example=nbody", "--features", "native", "--", "${@}"]
+command = "cargo"
+
+[tasks.bench]
+args = ["+nightly", "bench", "--features", "native"]
+command = "cargo"
+
+[tasks.build-pkg]
+dependencies = [
+  "build-single",
+  "build-parallel",
+]
+
+[tasks.build-parallel]
+args = [
+  "run",
+  "nightly",
+  "wasm-pack",
+  "build",
+  "--target",
+  "web",
+  ".",
+  "--",
+  "--features",
+  "web-parallel",
+  "-Z",
+  "build-std=panic_abort,std",
+]
+command = "rustup"
+env = {RUSTFLAGS = '-C target-feature=+atomics,+bulk-memory,+mutable-globals'}
+
+[tasks.build-single]
+dependencies = [
+  "build-single-main",
+  "build-single-post",
+]
+
+[tasks.build-single-main]
+args = [
+  "build",
+  "--target",
+  "web",
+  ".",
+  "--out-dir",
+  "pkg-single",
+  "--out-name",
+  "rayon_nbody_demo-single",
+  "--",
+  "--features",
+  "web",
+]
+command = "wasm-pack"
+
+[tasks.build-single-post]
+args = ["pkg_rename.py"]
+command = "python3"
