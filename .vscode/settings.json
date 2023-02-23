@@ -1,4 +1,5 @@
 {
+    /** settings.sub */
     "rust-analyzer.server.extraEnv": {
         "RUSTFLAGS": "-C target-feature=+atomics,+bulk-memory,+mutable-globals",
         "RUSTUP_TOOLCHAIN": "nightly"
@@ -11,7 +12,9 @@
     "rust-analyzer.cargo.features": [
         "web-parallel"
     ],
+    /** settings.sub */
     "[toml]": {
         "editor.defaultFormatter": "be5invis.toml"
-    }
+    },
+    "rust-analyzer.cargo.allFeatures": false
 }

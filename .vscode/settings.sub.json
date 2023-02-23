@@ -1,0 +1,29 @@
+{
+    "web-parallel": {
+        "rust-analyzer.server.extraEnv": {
+            "RUSTFLAGS": "-C target-feature=+atomics,+bulk-memory,+mutable-globals",
+            "RUSTUP_TOOLCHAIN": "nightly"
+        },
+        "rust-analyzer.cargo.target": "wasm32-unknown-unknown",
+        "rust-analyzer.checkOnSave.extraArgs": [
+            "-Z",
+            "build-std=panic_abort,std"
+        ],
+        "rust-analyzer.cargo.features": [
+            "web-parallel"
+        ]
+    },
+    "web": {
+        "rust-analyzer.cargo.target": "wasm32-unknown-unknown",
+        "rust-analyzer.cargo.features": [
+            "web"
+        ]
+    },
+    "native": {
+        "rust-analyzer.cargo.features": [
+            "native",
+            "parallel"
+        ]
+    },
+    "none": {}
+}
