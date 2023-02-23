@@ -33,7 +33,7 @@ glium = {version = "0.31", optional = true}
 # web
 console_error_panic_hook = {version = "0.1.6", optional = true}
 getrandom = {version = "0.2", features = ["js"], optional = true}
-wasm-bindgen = {version = "0.2.63", features = ["serde-serialize"], optional = true}
+wasm-bindgen = {version = "0.2.74", features = ["serde-serialize"], optional = true}
 wasm-logger = {version = "0.2", optional = true}
 web-sys = {version = "0.3", features = ["OffscreenCanvas", "WebGl2RenderingContext"], optional = true}
 wee_alloc = {version = "0.4.5", optional = true}

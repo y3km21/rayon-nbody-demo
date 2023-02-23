@@ -16,7 +16,7 @@ dependencies = [
 [tasks.build-parallel]
 args = [
   "run",
-  "nightly",
+  "nightly-2022-12-12",
   "wasm-pack",
   "build",
   "--target",
